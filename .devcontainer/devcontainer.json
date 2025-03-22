@@ -28,7 +28,9 @@
         "bradlc.vscode-tailwindcss",
         "meouwu.css-var-color-decorator",
         "eamodio.gitlens",
-        "antfu.slidev"
+        "antfu.slidev",
+        "yzhang.markdown-all-in-one",
+        "octref.vetur"
       ]
     }
   }
