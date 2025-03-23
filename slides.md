@@ -1,15 +1,15 @@
 ---
-title: 'Git Tutorial'
-titleTemplate: '%s'
+title: "Git Tutorial"
+titleTemplate: "%s"
 theme: default
 background: /images/background.jpg
 highlighter: shiki
 lineNumbers: true
-colorSchema: 'dark'
+colorSchema: "dark"
 fonts:
-  sans: 'Noto Sans Japanese'
-  serif: 'Noto Sans Japanese'
-  mono: 'Fira Code'
+  sans: "Noto Sans Japanese"
+  serif: "Noto Sans Japanese"
+  mono: "Fira Code"
 class: text-left
 transition: slide-left
 ---
@@ -33,6 +33,15 @@ transition: slide-left
 # 目次
 
 <Toc text-sm minDepth="1" maxDepth="2" />
+
+---
+
+# 本講義で習得してほしいこと
+
+- `Git` の基本的な操作、流れの理解
+- `GitHub` の基本的な操作、流れの理解
+- 覚えてほしいコマンド
+  - `git status`, `git add`, `git commit`
 
 ---
 title: はじめに①
@@ -91,10 +100,12 @@ hideInToc: true
 
 # リポジトリの作成
 
-<div />
+- `git init` を使用することでGitシステムの管理を開始することができます
+
+<div class="mt-8" />
 
 1. `git-tutorial` というディレクトリを作成し、`VSCode` で開く
-2. ターミナルからコマンド実行！（`ctrl` + `J`でターミナルを開けます）
+2. ターミナルからコマンド（`git init`）実行！（`ctrl` + `J`でターミナルを開けます）
 3. `.git` ディレクトリが作成される
 
 ```bash {1|3-4}
@@ -104,19 +115,21 @@ git init
 Initialized empty Git repository in ...git-tutorial/.git/
 ```
 
-<img src="/images/git-directory.png" class="h-48 mt-4" />
+<img src="/images/git-directory.png" class="w-100 h-32 mt-4 object-cover object-left-top" />
 
-<Arrow v-click x1="210" y1="390" x2="110" y2="340" class="text-green-500" />
+<Arrow v-click x1="210" y1="450" x2="110" y2="400" class="text-green-500" />
 
 ---
 hideInToc: true
 ---
 
-# Gitにユーザー情報を設定する
+# Gitにユーザ情報を設定する
 
-<div />
+- `git config` を使用することでGitシステムにユーザー情報を登録することができます
 
-ここで設定したユーザー情報は変更履歴を記録する際に一緒に記録され、誰がその変更履歴を記録したのかを確認する場合などに使用します
+<div class="mt-8" />
+
+ここで設定したユーザ情報は変更履歴を記録する際に一緒に記録され、誰がその変更履歴を記録したのかを確認する場合などに使用します
 
 <p class="text-red-400 font-bold">※改行が実行の合図なので、1行ずつ実行しましょう！</p>
 
@@ -157,11 +170,9 @@ hideInToc: true
 
 # リポジトリの変更状態を確認する
 
-<div />
+- `git status` はリポジトリの「変更状態」を確認できるコマンドです
 
 `git status` とターミナルに入力し、実行してみよう！
-
-リポジトリの「変更状態」を確認できるコマンドです！
 
 ```bash {1|2-11|7-9}
 git status
@@ -217,12 +228,12 @@ hideInToc: true
 
 # コミット対象に `test.txt` を含める
 
-<div />
+- `git add` を使用すると、ステージングエリアへの追加を行える
+  - 対象にファイル名やフォルダ名を指定できる → `git add .` とすれば、全ファイルがステージングエリアに移動する
 
-1. `git add` を使用すると、ステージングエリアへの追加を行える
+<div class="mt-8" />
 
-  ※対象にファイル名やフォルダ名を指定できる → `git add .` とすれば、全ファイルがステージングエリアに移動する
-
+1. `git add test.txt` で `test.txt` をステージングエリアに追加する
 2. `git status` で現在の状況を確認
 
 ```bash {1|3|5-11|9-11}
@@ -271,3 +282,116 @@ hideInToc: true
   <br />
   初めて記録が残る
 </div>
+
+---
+hideInToc: true
+---
+
+# リポジトリにコミットを記録しよう！
+
+<div />
+
+- `git commit` を使用すると、コミット履歴を記録することができます
+- `-m` オプションを使用することでコミットメッセージを付与することができます
+
+```bash {1|3-}
+git commit -m "test.txtの作成"
+
+[master (root-commit) c16a597] test.txtの作成
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+```
+
+<div v-after class="mt-4">
+  こんな感じで出力されたら、コミット完了📚
+</div>
+
+---
+hideInToc: true
+---
+
+# コミットを確認する
+
+<div class="absolute h-10 w-21 border-3 border-red-500 top-37 left-78 rounded-lg" />
+
+<div class="mt-4">
+  VSCode下部の <code>Git Graph</code> をクリック
+</div>
+
+<img src="/images/git-graph-button.png" class="h-12 mt-4" />
+
+<div class="mt-4">
+  さっきのコミット履歴を確認できる！
+</div>
+
+<img src="/images/commit-confirm1.png" class="h-60 mt-4" />
+
+<p v-click class="absolute top-80 left-140 text-green-500">コミットID（コミットハッシュ）</p>
+<Arrow v-after x1="550" y1="348" x2="370" y2="362" class="text-green-500" />
+<p v-click class="absolute top-90 left-140 text-green-500">コミットした人のユーザ名とメールアドレス</p>
+<Arrow v-after x1="550" y1="388" x2="310" y2="390" class="text-green-500" />
+<p v-click class="absolute top-100 left-140 text-green-500">コミットした日時</p>
+<Arrow v-after x1="550" y1="428" x2="370" y2="415" class="text-green-500" />
+<p v-click class="absolute top-110 left-140 text-green-500">コミットメッセージ</p>
+<Arrow v-after x1="550" y1="468" x2="188" y2="446" class="text-green-500" />
+
+---
+hideInToc: true
+layout: center
+class: text-center
+---
+
+# コミットまでの流れは理解できましたか？🧐
+
+---
+hideInToc: true
+---
+
+# ファイルを編集してコミットしてみよう
+
+1. `test.txt` に `Hello,World` と追記する
+
+```txt
+Hello,World
+```
+
+2. `1` で行った変更をコミットする → コミットメッセージは `text.txtへ「Hello,World」を追記` としてください
+3. `Git Graph` で変更を確認する
+
+<img src="/images/commit-confirm2.png" class="h-60 mt-4" />
+
+---
+title: 変更履歴を分岐させてみよう
+layout: center
+class: text-center
+---
+
+# 🪵変更履歴を分岐させてみよう🪵
+
+<div />
+
+`git branch`
+
+---
+hideInToc: true
+---
+
+# ブランチの状況を確認、作成する
+
+<div />
+
+- `git branch` で現在のブランチの一覧と参照しているブランチを確認できる（`*` が参照しているブランチ）
+- `git branch {ブランチ名}` でブランチの作成ができる
+
+`subブランチ` の作成と、ブランチの確認を行います！
+
+```bash
+git branch
+* master
+
+git branch sub
+
+git branch
+* master
+  sub
+```
