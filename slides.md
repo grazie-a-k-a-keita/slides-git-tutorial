@@ -11,6 +11,7 @@ fonts:
   serif: "Noto Sans Japanese"
   mono: "Fira Code"
 class: text-left
+favicon: "/images/favicon.png"
 transition: slide-left
 ---
 
@@ -355,7 +356,7 @@ hideInToc: true
 Hello,World
 ```
 
-2. `1` で行った変更をコミットする → コミットメッセージは `text.txtへ「Hello,World」を追記` としてください
+2. `1` で行った変更をコミットする → コミットメッセージは `test.txtへ「Hello,World」を追記` としてください
 3. `Git Graph` で変更を確認する
 
 <img src="/images/commit-confirm2.png" class="h-60 mt-4" />
